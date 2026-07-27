@@ -13,10 +13,8 @@
 *   **`ponytail`**：專門優化高階邏輯與自動化建構腳本的核心外掛。
 *   **`i-have-adhd`**：極致視覺錨點優化，用高對比、超 Scannable（好讀、短句、重點標記）的格式來與我交談，防止我漏看任何關鍵程式碼。
 
-### 2. 預載常用 MCP 伺服器
-請確保容器內已全域安裝並執行以下兩大開發必備 MCP 元件，方便你隨時調用本機資料庫與網頁：
-*   `@modelcontextprotocol/server-sqlite`（指定路徑：`/workspace/dev.db`）
-*   `@modelcontextprotocol/server-fetch`（網頁資料抓取）
+### 2. MCP 服務（透過 Docker MCP Toolkit）
+MCP 服務（SQLite、Fetch、Sentry 等）請透過 **Docker MCP Toolkit** 在容器內設定，無需在本機手動安裝。
 
 ---
 

@@ -26,21 +26,4 @@ cat << 'EOF' > ~/.claude/settings.json
 }
 EOF
 
-# 2. 自動在背景將內建好的 MCP（SQLite / Fetch）跟你的 Claude 通道對接
-mkdir -p ~/.config/Claude
-cat << 'EOF' > ~/.config/Claude/claude_desktop_config.json
-{
-  "mcpServers": {
-    "sqlite": {
-      "command": "mcp-server-sqlite",
-      "args": ["/workspace/dev.db"]
-    },
-    "fetch": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch"]
-    }
-  }
-}
-EOF
-
-echo "✅ Ubuntu 24.04 基礎環境、外掛庫與內建 MCP 預載成功！"
+echo "✅ Ubuntu 24.04 基礎環境與外掛庫預載成功！MCP 請透過 Docker MCP Toolkit 設定。"

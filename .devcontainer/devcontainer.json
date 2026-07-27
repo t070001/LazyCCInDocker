@@ -6,6 +6,6 @@
       "version": "20"
     }
   },
-  "postCreateCommand": "npm install -g @anthropic-ai/claude-code cc-switch @modelcontextprotocol/server-sqlite @modelcontextprotocol/server-fetch && sh ./setup-claude.sh"
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code && sh ./setup-claude.sh"
 }
 
