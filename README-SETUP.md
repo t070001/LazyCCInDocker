@@ -42,6 +42,28 @@ cd LazyCCInDocker
 # 腳本會自己裝好全部東西，然後自動進入 Claude Code
 ```
 
+**選 C：開新專案**
+不想每次都 git clone？在同一個 repo 用 `start.ps1` 生新專案：
+
+```powershell
+# 在你要放專案的地方
+cd D:\projects
+./路徑/LazyCCInDocker/start.ps1 new my-new-app
+cd my-new-app
+code .    # → Reopen in Container（2 秒）
+
+# 或直接在終端機開發
+cd my-new-app
+./start.ps1
+```
+
+**裝一次 ndev 指令（以後不用打路徑）：**
+```powershell
+./start.ps1 install   # ← 只做一次
+# 重開 PowerShell 後：
+ndev my-app           # 在任何目錄都能直接開新專案
+```
+
 就這麼簡單。容器會自己 build 好，所有依賴一次到位。
 
 ---
