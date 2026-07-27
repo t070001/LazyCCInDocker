@@ -1,0 +1,7 @@
+node_modules/
+.claude/cache/
+.claude/sessions/
+.claude/file-history/
+.claude/paste-cache/
+.env
+*.log

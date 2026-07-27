@@ -1,0 +1,11 @@
+{
+  "name": "Claude Code Ubuntu 24.04 LTS",
+  "image": "ubuntu:24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code cc-switch @modelcontextprotocol/server-sqlite @modelcontextprotocol/server-fetch && sh ./setup-claude.sh"
+}
+
