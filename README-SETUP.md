@@ -18,7 +18,24 @@ MCP 服務（SQLite、Fetch、Sentry 等）請透過 **Docker MCP Toolkit** 在�
 
 ---
 
-## 🛠️ 未來在新電腦「無痛複製部署」的三步極速指南
+## 🚀 一鍵啟動（給想直接用的人）
+
+**需要：** Docker Desktop + VS Code + Dev Containers 擴充功能
+
+```bash
+git clone <your-repo-url> && cd <project>
+code .
+# VS Code 右下角彈出 → "Reopen in Container" → 點下去
+# 等 2 分鐘，自動裝好 Node 22、Claude Code、設定檔
+# 開啟終端機 → 執行：
+claude
+```
+
+就這麼簡單。容器會自己 build 好，所有依賴一次到位。
+
+---
+
+## 🛠️ 手動三步驟（給想了解細節的人）
 
 如果在其他電腦需要重新部署本環境，請直接依照以下物理步驟操作，100% 免疫 Windows 路徑解析 Bug：
 
@@ -37,23 +54,9 @@ docker run -d --name claude_ubuntu_sandbox -v "${PWD}:/workspace" -v "claude-glo
 ### 步驟 3：VS Code 連線並一鍵點火
 1. 打開 VS Code，按下 `F1` 選擇 **`Dev Containers: Attach to Running Container...`**，點擊 **`claude_ubuntu_sandbox`**。
 2. 進入後，點擊「開啟資料夾」，路徑輸入 `/workspace`。
-3. 按下 `` Ctrl + ` `` 打開容器終端機，執行以下「無痛一鍵安裝與偽裝啟動」指令：
+3. 按下 `` Ctrl + ` `` 打開容器終端機，執行：
 ```bash
-# 一鍵更新系統、灌好 Node.js 並安裝 Claude Code 引擎
-apt-get update && apt-get install -y curl git nano && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && apt-get install -y nodejs && npm install -g @anthropic-ai/claude-code
-
-# 寫死物理跨界偽裝設定檔
-mkdir -p ~/.claude && cat << 'EOF' > ~/.claude/settings.json
-{
-  "env": {
-    "ANTHROPIC_BASE_URL": "http://docker.internal",
-    "ANTHROPIC_API_KEY": "sk-dummy-key"
-  },
-  "model": "claude-3-5-sonnet"
-}
-EOF
-
-# 正式啟動
+# 啟動 Claude Code
 claude
 ```
 
