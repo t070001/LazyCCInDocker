@@ -1,4 +1,11 @@
 # =====================================================
+# ⚠️ DEPRECATED — 此腳本已廢棄
+# =====================================================
+# MCP 現在透過 Docker MCP Toolkit 管理，不需要在本機安裝。
+# Skills（i-have-adhd, ponytail）已透過 `/plugin` 安裝完成。
+# grill-me 已存在於 ~/.claude/skills/grill-me。
+# 留作參考用，無需執行。
+# =====================================================
 # MCP & Skill 批量安裝腳本（修正版）
 # =====================================================
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
