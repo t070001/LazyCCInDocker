@@ -20,15 +20,26 @@ MCP 服務（SQLite、Fetch、Sentry 等）請透過 **Docker MCP Toolkit** 在�
 
 ## 🚀 一鍵啟動（給想直接用的人）
 
-**需要：** Docker Desktop + VS Code + Dev Containers 擴充功能
+**選 A：VS Code（推薦）**
+需要安裝 Docker Desktop + VS Code + Dev Containers 擴充
 
 ```bash
-git clone <your-repo-url> && cd <project>
+git clone <repo-url>
+cd LazyCCInDocker
 code .
-# VS Code 右下角彈出 → "Reopen in Container" → 點下去
-# 等 2 分鐘，自動裝好 Node 22、Claude Code、設定檔
-# 開啟終端機 → 執行：
+# VS Code 右下角 → "Reopen in Container" → 等 2 分鐘
+# 終端機執行：
 claude
+```
+
+**選 B：終端機（任何人都行）**
+只需要 Docker Desktop
+
+```powershell
+git clone <repo-url>
+cd LazyCCInDocker
+./start.ps1
+# 腳本會自己裝好全部東西，然後自動進入 Claude Code
 ```
 
 就這麼簡單。容器會自己 build 好，所有依賴一次到位。
