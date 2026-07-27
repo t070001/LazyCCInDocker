@@ -26,14 +26,14 @@
 
 ### 步驟 1：Windows 本機環境準備
 1. 確保新電腦已安裝 **Docker Desktop** 與 **VS Code**（須安裝 `Dev Containers` 擴充功能）。
-2. 下載並打開 **`cc-switch` 桌面客戶端**。
+2. 下載並打開 **`cc-switch` 桌面客戶端**（<!-- TODO: 補上 cc-switch 下載來源 -->）。
 3. 配置 **Agnes AI 的免費 Key**（Base URL: `https://agnes-ai.com`，Model: `agnes-2.0-flash`）。
 4. **【關鍵】** 必須打開 cc-switch 的「本地路由（Local Routing）」開關，並確認監聽在 **`15721`** 埠（即 `http://127.0.0.1:15721`）。
 
 ### 步驟 2：物理強行啟動 Docker 獨立沙盒
 在新電腦的 Windows **PowerShell** 中，直接移動到專案資料夾下，執行以下指令強行開闢 Ubuntu 24.04 沙盒（完全去微軟化，阻斷網址解析 Bug）：
 ```powershell
-docker run -d --name claude_ubuntu_sandbox -v "\${PWD}:/workspace" -v "claude-global-node:/usr/local/lib/node_modules" -w /workspace ubuntu:24.04 tail -f /dev/null
+docker run -d --name claude_ubuntu_sandbox -v "${PWD}:/workspace" -v "claude-global-node:/usr/local/lib/node_modules" -w /workspace ubuntu:24.04 tail -f /dev/null
 ```
 
 ### 步驟 3：VS Code 連線並一鍵點火
@@ -42,7 +42,7 @@ docker run -d --name claude_ubuntu_sandbox -v "\${PWD}:/workspace" -v "claude-gl
 3. 按下 `` Ctrl + ` `` 打開容器終端機，執行以下「無痛一鍵安裝與偽裝啟動」指令：
 ```bash
 # 一鍵更新系統、灌好 Node.js 並安裝 Claude Code 引擎
-apt-get update && apt-get install -y curl git nano && curl -fsSL https://nodesource.com | bash - && apt-get install -y nodejs && npm install -g @anthropic-ai/claude-code
+apt-get update && apt-get install -y curl git nano && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && apt-get install -y nodejs && npm install -g @anthropic-ai/claude-code
 
 # 寫死物理跨界偽裝設定檔
 mkdir -p ~/.claude && cat << 'EOF' > ~/.claude/settings.json
@@ -65,3 +65,4 @@ claude
 為了防止容器重啟或中斷導致 AI 忘記進度，請遵守以下約定：
 1. **每日收工前**：對 Claude 說：「我要下班了，請更新 `.claude-progress.md` 備忘錄。」
 2. **隔日開工時**：對 Claude 說：「讀取 `.claude-progress.md` 並執行 `git diff`，繼續把昨天的程式碼寫完。」
+
