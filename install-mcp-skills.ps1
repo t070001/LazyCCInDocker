@@ -11,8 +11,8 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 # 定義路徑
-$skillDir = "C:\Users\FunChang\.claude\skills"
-$configPath = "C:\Users\FunChang\.claude\settings.json"
+$skillDir = "$env:USERPROFILE\.claude\skills"
+$configPath = "$env:USERPROFILE\.claude\settings.json"
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 
 # 創建必要目錄

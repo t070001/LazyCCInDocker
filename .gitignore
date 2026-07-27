@@ -3,5 +3,8 @@ node_modules/
 .claude/sessions/
 .claude/file-history/
 .claude/paste-cache/
+.claude/settings.local.json
 .env
 *.log
+.claude-progress.md
+memo.txt
