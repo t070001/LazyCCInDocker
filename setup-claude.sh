@@ -8,7 +8,7 @@ cat << 'EOF' > ~/.claude/settings.json
 {
   "$schema": "https://schemastore.org",
   "env": {
-    "ANTHROPIC_BASE_URL": "http://127.0.0.1:15721",
+    "ANTHROPIC_BASE_URL": "http://host.docker.internal:15721",
     "ANTHROPIC_API_KEY": "sk-dummy-key-for-claude-code"
   },
   "model": "agnes-2.0-flash",
